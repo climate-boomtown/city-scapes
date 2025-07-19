@@ -1,0 +1,444 @@
+/*
+  Author: Jared Hogeterp
+  File: style.css
+  Date: 2025-07-19
+  Description: Main stylesheet for the Climate Boomtowns website
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 2rem;
+}
+
+main img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+main .text {
+  max-width: 600px;
+}
+
+body.home header,
+.site-header {
+  background-image: url('images/h.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+body.home header::before,
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+body.home header h1,
+.site-header h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+/* Navigation */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 20px;
+}
+
+nav ul li {
+  margin: 0 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Authors Page */
+.authors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.author {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.author img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.author p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 4.2em;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.author.expanded p {
+  max-height: 1000px;
+}
+
+.toggle-button {
+  background-color: transparent;
+  border: none;
+  color: #0077cc;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .toggle-button {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .author p {
+    font-size: 0.95rem;
+  }
+
+  .author img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Resources Page */
+.resources h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.bibliography p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.bibliography a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.bibliography a:hover {
+  text-decoration: underline;
+}
+
+.author-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.author-links li {
+  background-color: #f0f8ff;
+  border: 1px solid #cce7ff;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.author-links a {
+  text-decoration: none;
+  color: #005a9c;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.author-links li:hover {
+  background-color: #e6f2ff;
+  transform: translateY(-4px);
+}
+
+/* City Findings & Events */
+.city-findings section,
+.events section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.city-findings img,
+.events img {
+  margin-right: 1rem;
+  max-width: 200px;
+}
+
+/* Photos Page */
+.photos .hover-photo {
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.photos .hover-text {
+  display: none;
+  text-align: center;
+}
+
+.photos .hover-photo:hover .hover-text {
+  display: block;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  main img {
+    display: block;
+    margin: 0 auto 1rem;
+  }
+}
+
+
+details {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.1em;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+details[open] summary {
+  margin-bottom: 1em;
+}
+
+summary::marker {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .authors {
+    grid-template-columns: 1fr;
+  }
+  .city-findings section,
+  .events section {
+    flex-direction: column;
+  }
+  .city-findings img,
+  .events img {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  nav ul li {
+    margin: 0;
+  }
+
+  nav {
+    padding: 1rem 0;
+  }
+
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  footer img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+
+.events h2,
+.city-findings h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+  color: #003366;
+  text-align: left;
+}
+
+.events .event-text,
+.city-findings .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.events section,
+.city-findings section {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.city-findings img,
+.events img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .city-findings img,
+  .events img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-top: 1rem;
+}
+
+section {
+  scroll-margin-top: 6rem;
+  transition: background-color 0.3s ease;
+}
+
+
+.events section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.events img {
+  margin: 0 0 1rem 0; /* Remove right margin and space below */
+}
+
+.events h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photos .hover-photo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photos img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.hover-text {
+  display: none;
+  padding-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+
+.hover-photo:hover .hover-text {
+  display: block;
+}
+
+.events section {
+  text-align: center;
+  align-items: center;
+}
+
+.events img {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  display: block;
+  border-radius: 12px;
+}
+
+.events h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+/* Misc / Utility */
+
+
