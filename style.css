@@ -442,3 +442,27 @@ section {
 /* Misc / Utility */
 
 
+/* --- Bern event flyers (two images) --- */
+.event-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;               /* close to your single-image width, but comfy for two */
+  margin: 0 auto 1rem;            /* keeps same centered feel as other .events images */
+}
+
+.event-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;            /* matches your .events img radius */
+  margin: 0;                      /* override .events img auto margins inside the grid */
+  /* let the grid control sizing, so no max-width here */
+}
+
+@media (max-width: 768px) {
+  .event-images {
+    grid-template-columns: 1fr;   /* stack on small screens */
+  }
+}
